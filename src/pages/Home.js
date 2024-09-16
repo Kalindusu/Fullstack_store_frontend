@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import {  Container, Table } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function Home() {
   const [users, setUsers] = useState([]);
@@ -23,18 +26,21 @@ export default function Home() {
   };
 
   return (
-    <div classNameNameName="container">
-      <div classNameNameName="py-4">
-        <table className="table border shadow">
-          <thead>
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">Name</th>
-              <th scope="col">UserName</th>
-              <th scope="col">Email</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
+    <div>
+     <Container className="mt-5">
+     <Row>
+          <Col>
+            <h1 className="text-center">Employees</h1>
+            <Table striped bordered hover>
+        <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>username</th>
+                  <th>Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
           <tbody>
             {users.map((user, index) => (
               <tr>
@@ -64,8 +70,11 @@ export default function Home() {
               </tr>
             ))}
           </tbody>
-        </table>
+          </Table>
+          </Col>
+        </Row>
+        </Container>
       </div>
-    </div>
+   
   );
 }
